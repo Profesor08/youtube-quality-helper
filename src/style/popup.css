@@ -1,0 +1,43 @@
+body {
+  width: 250px;
+  margin: 0;
+}
+
+main {
+  display: grid;
+  grid-template-rows: 40px 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 24px;
+  color: #e07a5f;
+}
+
+label {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 8px 12px;
+}
+
+label:hover {
+  background-color: #f4f1de;
+}
+
+label:has(:checked) {
+  background-color: #f2cc8f;
+}
+
+sup {
+  color: #e07a5f;
+}

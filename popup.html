@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="src/style/popup.css">
+</head>
+
+<body>
+
+  <main>
+    <h1>Youtube Quality Helper</h1>
+
+    <form id="form">
+      <label>
+        <input type="radio" name="quality" value="highres" />
+        <span>4320p</span>
+        <sup>8k</sup>
+      </label>
+      <label>
+        <input type="radio" name="quality" value="hd2160" />
+        <span>2160p</span>
+        <sup>4k</sup>
+      </label>
+      <label>
+        <input type="radio" name="quality" value="hd1440" />
+        <span>1440p</span>
+        <sup>HD</sup>
+      </label>
+      <label>
+        <input type="radio" name="quality" value="hd1080" />
+        <span>1080p</span>
+        <sup>HD</sup>
+      </label>
+      <label>
+        <input type="radio" name="quality" value="hd720" />
+        <span>720p</span>
+      </label>
+      <label>
+        <input type="radio" name="quality" value="large" />
+        <span>480p</span>
+      </label>
+      <label>
+        <input type="radio" name="quality" value="medium" />
+        <span>360p</span>
+      </label>
+      <label>
+        <input type="radio" name="quality" value="small" />
+        <span>240p</span>
+      </label>
+      <label>
+        <input type="radio" name="quality" value="tiny" />
+        <span>144p</span>
+      </label>
+      <label>
+        <input type="radio" name="quality" value="auto" checked />
+        <span>Auto</span>
+      </label>
+    </form>
+
+    <small>Automatically sets video quality to selected one</small>
+  </main>
+
+
+  <script src="src/popup.js" type="module" async></script>
+
+</body>
+
+</html>

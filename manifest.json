@@ -30,5 +30,5 @@
       "matches": ["https://youtube.com/*", "https://www.youtube.com/*"]
     }
   ],
-  "permissions": ["tabs", "storage"]
+  "permissions": ["storage"]
 }

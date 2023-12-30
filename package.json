@@ -4,11 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "node zip.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^20.10.6",
+    "archiver": "^6.0.1",
     "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/archiver": "^6.0.2"
   }
 }

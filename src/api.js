@@ -11,7 +11,7 @@
 
     run = async () => {
       chrome.storage.onChanged.addListener((changes, area) => {
-        if (area === "sync" && changes["quality"] !== undefined) {
+        if (area === "local" && changes["quality"] !== undefined) {
           this.update(changes["quality"].newValue);
         }
       });
@@ -36,7 +36,7 @@
       /**
        * @type {{ quality: Quality }}
        */
-      const { quality } = await chrome.storage.sync.get("quality");
+      const { quality } = await chrome.storage.local.get("quality");
 
       return quality ?? "auto";
     };
@@ -46,7 +46,7 @@
      * @returns
      */
     save = async (quality) => {
-      return await chrome.storage.sync.set({ quality });
+      return await chrome.storage.local.set({ quality });
     };
   }
 

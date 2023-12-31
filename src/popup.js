@@ -51,7 +51,7 @@
       /**
        * @type {{ quality: Quality }}
        */
-      const { quality } = await chrome.storage.sync.get("quality");
+      const { quality } = await chrome.storage.local.get("quality");
 
       return quality ?? "auto";
     };
@@ -62,7 +62,7 @@
      */
     save = async (quality) => {
       console.log(quality);
-      return await chrome.storage.sync.set({ quality });
+      return await chrome.storage.local.set({ quality });
     };
   }
 

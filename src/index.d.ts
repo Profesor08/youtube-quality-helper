@@ -63,6 +63,7 @@ declare namespace Chrome {
 
   interface Browser {
     storage: {
+      local: any;
       sync: any;
 
       onChanged: {

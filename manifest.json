@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Youtube Quality Helper",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "icons": {
     "128": "icons/youtube-quality-helper-128.png",
     "48": "icons/youtube-quality-helper-48.png",

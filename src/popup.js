@@ -15,21 +15,21 @@
     }
 
     run = async () => {
-      if (this.form !== null) {
-        const quality = await this.config.get();
+      const quality = await this.config.get();
 
-        /**
-         * @type {HTMLInputElement | null}
-         */
-        const selectedInput =
-          this.form.querySelector(`[value="${quality}"]`) ?? null;
+      /**
+       * @type {HTMLInputElement | null}
+       */
+      const selectedInput =
+        this.form?.querySelector(`[value="${quality}"]`) ?? null;
 
-        if (selectedInput !== null) {
-          selectedInput.checked = true;
-        }
+      if (selectedInput !== null) {
+        selectedInput.checked = true;
+      }
 
-        this.form.addEventListener("change", () => {
-          if (this.form !== null) {
+      this.form?.querySelectorAll("label").forEach((label) => {
+        label.addEventListener("click", (event) => {
+          if (event.target === label && this.form !== null) {
             const data = new FormData(this.form);
 
             /**
@@ -42,7 +42,7 @@
             }
           }
         });
-      }
+      });
     };
   }
 
@@ -61,8 +61,7 @@
      * @returns
      */
     save = async (quality) => {
-      console.log(quality);
-      return await chrome.storage.local.set({ quality });
+      return await chrome.storage.local.set({ quality, time: Date.now() });
     };
   }
 

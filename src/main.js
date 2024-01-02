@@ -4,6 +4,11 @@
   class YoutubeQualityHelper {
     constructor() {
       /**
+       * @type {string | null}
+       */
+      this.url = null;
+
+      /**
        * @type {Map<Quality, number>}
        */
       this.qualityMap = new Map();
@@ -46,16 +51,25 @@
      */
     updateQuality = (quality) => {
       this.quality = quality;
-      this.update();
+      this.update(true);
     };
 
-    update = () => {
+    update = (force = false) => {
+      console.log(force);
+
+      if (force === false && this.url === window.location.href) {
+        return;
+      }
+
       const quality = this.getMatchingQuality();
 
-      if (quality !== this.player?.getPlaybackQuality()) {
-        this.player?.setPlaybackQuality?.(quality);
-        this.player?.setPlaybackQualityRange?.(quality);
+      if (force === false || quality === this.player?.getPlaybackQuality()) {
+        return;
       }
+
+      this.player?.setPlaybackQuality?.(quality);
+      this.player?.setPlaybackQualityRange?.(quality);
+      this.url = window.location.href;
     };
 
     observe = () => {

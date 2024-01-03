@@ -17,12 +17,8 @@ type Quality =
   | "tiny"
   | "auto";
 
-interface OnQualityUpdate extends CustomEvent {
-  detail: Quality;
-}
-
 interface CustomWindowEventMap extends WindowEventMap {
-  "quality-update": OnQualityUpdate;
+  "quality-update": CustomEvent<Quality>;
 }
 
 interface Window {
@@ -47,30 +43,3 @@ interface Window {
     options?: boolean | EventListenerOptions
   ): void;
 }
-
-declare namespace Chrome {
-  type AreaName = "sync" | "local" | "managed" | "session";
-
-  type StorageChangedCallback = (
-    changes: { [key: string]: StorageChange },
-    areaName: AreaName
-  ) => void;
-
-  interface StorageChange {
-    newValue?: any;
-    oldValue?: any;
-  }
-
-  interface Browser {
-    storage: {
-      local: any;
-      sync: any;
-
-      onChanged: {
-        addListener: (callback: StorageChangedCallback) => void;
-      };
-    };
-  }
-}
-
-declare const chrome: Chrome.Browser;

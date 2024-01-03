@@ -49,7 +49,7 @@
   class Config {
     get = async () => {
       /**
-       * @type {{ quality: Quality }}
+       * @type {{ quality?: Quality }}
        */
       const { quality } = await chrome.storage.local.get("quality");
 
